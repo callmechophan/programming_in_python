@@ -11,12 +11,20 @@ menu = {
         "price": 4.99}
 }
 
+
+
+
+
 # display all in menu
 def display_menu():
     print("----------MENU----------")
     for key, value in menu.items():
         print(f"{key}. {value['name'] : <9} | {value['price'] : >5}") # use single quote when access a set
     print()
+
+
+
+
 
 # create an order by prompting the user to select menu items
 def take_order():
@@ -36,13 +44,21 @@ def take_order():
 
     return order
 
-def print_order(order):
+
+
+
+
+def print_order(order: list):
     print("\nYou have orderd 3 items: ")
     items = []
     items = [item['name'] for item in order] # use a short for loop
     print(f"{items}")
 
-def calculate_subtotal(order):
+
+
+
+
+def calculate_subtotal(order: list):
     """
     Description:
         The sum of the prices of the items in the order
@@ -51,7 +67,7 @@ def calculate_subtotal(order):
         order: list of dicts that contain an item name and price from menu
 
     Returns:
-        subtotal (float)
+        subtotal
     """
 
     print("\nCalculating bill subtotal...")
@@ -62,7 +78,11 @@ def calculate_subtotal(order):
 
     return round(subtotal, 2)
 
-def calculate_tax(subtotal):
+
+
+
+
+def calculate_tax(subtotal: float):
     """
     Description:
         The tax required of a given subtotal, which is 15% rounded to two decimals
@@ -79,7 +99,11 @@ def calculate_tax(subtotal):
 
     return round(tax, 2)
 
-def summarize_order(order):
+
+
+
+
+def summarize_order(order: list):
     """
     Description:
         1. Calculate the total (subtotal + tax) and store it in a variable named total (rounded to two decimals)
@@ -90,8 +114,8 @@ def summarize_order(order):
         order: list of dicts that contain an item name and price from menu
 
     Returns:
-        names (list)
-        total (float)
+        names
+        total
     """
 
     names = []
@@ -107,6 +131,10 @@ def summarize_order(order):
     total = subtotal + tax
 
     return names, round(total, 2)
+
+
+
+
 
 def main():
     order = take_order()
